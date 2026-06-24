@@ -1,0 +1,33 @@
+<form action="process.php" method="POST">
+    <div>
+        <label for="name">Ваше имя *</label><br>
+        <input type="text" id="name" name="name" required>
+    </div>
+    
+    <p>Ваш пол *</p>
+    <div>
+        <input type="radio" id="male" name="gender" value="M" required>
+        <label for="male">M</label>
+    </div>
+    <div>
+        <input type="radio" id="female" name="gender" value="Ж">
+        <label for="female">Ж</label>
+    </div>
+    
+    <div style="margin-top: 10px;">
+        <input type="checkbox" id="army" name="army" value="yes">
+        <label for="army">Служил в армии</label>
+    </div>
+    
+    <div style="margin-top: 10px;">
+        <button type="submit" style="
+            background-color: #ccc; /* Серый фон */
+            border: 1px solid #999; /* Рамка */
+            border-radius: 15px; /* Скругление углов (овальность) */
+            padding: 5px 15px; /* Отступы внутри кнопки */
+            font-size: 14px; /* Размер шрифта */
+        ">
+            Submit
+        </button>
+    </div>
+</form>
