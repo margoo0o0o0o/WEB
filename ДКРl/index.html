@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Moov — Образование за рубежом</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .task-section { padding: 60px 0; background: #f5f7fa; border-bottom: 1px solid #e0e0e0; }
+        .task-section .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .task-section h2 { font-size: 32px; font-weight: 900; color: #111; border-left: 5px solid #1e5eff; padding-left: 20px; margin-bottom: 30px; }
+        .task-box { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .task-box .btn { display: inline-block; padding: 10px 20px; margin: 5px; text-decoration: none; border-radius: 8px; color: white; border: none; cursor: pointer; font-weight: 600; }
+        .btn-primary { background: #1e5eff; }
+        .btn-success { background: #28a745; }
+        .btn-danger { background: #dc3545; }
+        .btn-warning { background: #ffc107; color: #333; }
+        .task-box input, .task-box select { padding: 10px 14px; border: 1px solid #ddd; border-radius: 8px; margin: 5px; font-size: 14px; }
+        .task-box ul { list-style: none; padding: 0; }
+        .task-box ul li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .task-box .status { padding: 10px 15px; border-radius: 8px; margin: 10px 0; }
+        .status-active { background: #d4edda; color: #155724; }
+        .status-empty { background: #fff3cd; color: #856404; }
+        .status-deleted { background: #f8d7da; color: #721c24; }
+        .login-form input { width: 100%; max-width: 300px; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin: 5px 0; box-sizing: border-box; }
+        .login-form button { padding: 12px 30px; background: #1e5eff; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
+        .login-form button:hover { background: #0a4ae6; }
+        .admin-panel { background: #f0f4ff; padding: 20px; border-radius: 12px; margin-top: 15px; }
+        .admin-panel h3 { color: #1e5eff; }
+        .admin-panel .logout-btn { background: #dc3545; color: white; padding: 8px 20px; border-radius: 8px; text-decoration: none; display: inline-block; }
+        .admin-panel .logout-btn:hover { background: #c82333; }
+        .flex-wrap { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+        .error-msg { color: #dc3545; font-weight: 600; }
+        .success-msg { color: #28a745; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <img src="your-background-image.jpg" alt="Фон Университет" class="hero-bg-img">
+        <div class="hero-overlay"></div>
+
+        <div class="container-fluid">
+            <nav class="header-nav">
+                <div class="nav-left-side">
+                    <div class="logo-block">
+                        <div class="logo">Study<span>&gt;</span>Moov</div>
+                        <div class="logo-subtitle">Образование за рубежом</div>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="#" class="dropdown">Услуги</a></li>
+                        <li><a href="#" class="dropdown">Страны</a></li>
+                        <li><a href="#" class="dropdown">Программы</a></li>
+                        <li><a href="php/file_examples.php">Работа с файлами</a></li>
+                        <li><a href="php/view_faq.php">Вопрос-ответ</a></li>
+                        <li><a href="php/login.php">Вход</a></li>
+                        <li><a href="php/register.php">Регистрация</a></li>
+                        <li><a href="php/cart_db.php">Корзина</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                        <li><a href="php/view_requests.php">Заявки</a></li>
+                    </ul>
+                </div>
+                <div class="header-actions">
+                    <a href="tel:+74952644423" class="phone">+7 495 264-44-23</a>
+                    <button class="btn btn-outline">Обратный звонок</button>
+                    <div class="lang-switcher">
+                        <span class="lang-icon">🌐</span>
+                        <span class="lang-text dropdown">Ru</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Среднее и высшее образование<br>в Европе, Англии и США.</h1>
+                <p class="hero-subtitle">Повысьте свои шансы на поступление в Западные вузы.</p>
+                <button class="btn btn-primary">Поступить</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <div class="stat-icon">🏅</div>
+                <div class="stat-text">
+                    <h3>267</h3>
+                    <p>предложений в университеты из мирового топа вузов</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-text">
+                    <h3>119</h3>
+                    <p>поступивших в Oxford и Cambridge</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">🎒</div>
+                <div class="stat-text">
+                    <h3>324</h3>
+                    <p>школ со средним образованием</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-bar">
+                <div class="filter-select">Все страны <span class="arrow">▼</span></div>
+                <div class="filter-select">Все программы <span class="arrow">▼</span></div>
+                <div class="filter-select">Все специальности <span class="arrow">▼</span></div>
+                <div class="filter-select dropdown-trigger">
+                    <span class="selected-value">Стоимость</span> <span class="arrow">▼</span>
+                    <div class="filter-dropdown-menu price-dropdown">
+                        <div class="dropdown-item">&lt; € 10 000</div>
+                        <div class="dropdown-item">€ 10 000 – 15 000</div>
+                        <div class="dropdown-item">€ 15 000 – 30 000</div>
+                        <div class="dropdown-item">Любая</div>
+                    </div>
+                </div>
+                <div class="filter-select dropdown-trigger">
+                    <span class="selected-value">Все языки</span> <span class="arrow">▼</span>
+                    <div class="filter-dropdown-menu lang-dropdown">
+                        <div class="dropdown-item"><span class="flag us"></span>Английский</div>
+                        <div class="dropdown-item"><span class="flag de"></span>Немецкий</div>
+                        <div class="dropdown-item"><span class="flag fr"></span>Французский</div>
+                        <div class="dropdown-item"><span class="flag es"></span>Испанский</div>
+                    </div>
+                </div>
+            </div>
+            <h2 class="results-title">Всего университетов: 182</h2>
+            <div class="cards-list">
+
+                <!-- КАРТОЧКА 1 -->
+                <div class="uni-card">
+                    <div class="uni-card-main">
+                        <div class="uni-image">
+                            <img src="vienna-uni.jpg" alt="Венский Ветеринарный Университет">
+                        </div>
+                        <div class="uni-info">
+                            <h3 class="uni-title">Венский Ветеринарный Университет</h3>
+                            <div class="uni-meta">
+                                <span class="rating">★ 4.8 <i class="info-icon">i</i></span>
+                                <span class="location">📍 Австрия, Вена</span>
+                            </div>
+                            <div class="uni-details">
+                                <p><strong>Программы:</strong> бакалавриат, магистратура, подготовка к бакалавриату</p>
+                                <p><strong>Языки обучения:</strong> английский, испанский, болгарский, румынский</p>
+                            </div>
+                            <button class="btn-select-prog dropdown-blue">Все программы</button>
+                        </div>
+                        <div class="uni-side">
+                            <img src="vienna-logo.png" alt="Логотип вуза" class="uni-logo">
+                            <div class="uni-price-block">
+                                <span class="price-label">Стоимость от</span>
+                                <span class="price-value">€ 25 538/год</span>
+                            </div>
+                            <button class="btn btn-card-action toggle-table-btn">Быстрая заявка</button>
+                        </div>
+                    </div>
+                    <div class="uni-card-dropdown">
+                        <table class="programs-table">
+                            <thead>
+                                <tr><th>🎓 Программа</th><th>✏️ Поступление</th><th>🔔 Начало</th><th>🍎 Возраст</th><th>⌛ Цена/год</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="prog-name">Бакалавриат</td><td>11 окт – 13 дек</td><td>1 ноября 2021</td><td>22-23 года</td><td class="table-price">€ 22 989</td><td><button class="btn btn-table-action">Быстрая заявка</button></td></tr>
+                                <tr><td class="prog-name">Магистратура</td><td>11 окт – 13 дек</td><td>1 ноября 2021</td><td>22-23 года</td><td class="table-price">€ 22 989</td><td><button class="btn btn-table-action">Быстрая заявка</button></td></tr>
+                                <tr><td class="prog-name">Подготовка к бакалавриату</td><td>11 окт – 13 дек</td><td>1 ноября 2021</td><td>22-23 года</td><td class="table-price">€ 22 989</td><td><button class="btn btn-table-action">Быстрая заявка</button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- КАРТОЧКА 2 -->
+                <div class="uni-card">
+                    <div class="uni-card-main">
+                        <div class="uni-image">
+                            <img src="vienna-uni.jpg" alt="Венский Ветеринарный Университет">
+                        </div>
+                        <div class="uni-info">
+                            <h3 class="uni-title">Венский Ветеринарный Университет</h3>
+                            <div class="uni-meta">
+                                <span class="rating">★ 4.8 <i class="info-icon">i</i></span>
+                                <span class="location">📍 Австрия, Вена</span>
+                            </div>
+                            <div class="uni-details">
+                                <p><strong>Программы:</strong> бакалавриат, магистратура, подготовка к бакалавриату</p>
+                                <p><strong>Языки обучения:</strong> английский, испанский, болгарский, румынский</p>
+                            </div>
+                            <button class="btn-select-prog dropdown-blue">Все программы</button>
+                        </div>
+                        <div class="uni-side">
+                            <img src="vienna-logo.png" alt="Логотип вуза" class="uni-logo">
+                            <div class="uni-price-block">
+                                <span class="price-label">Стоимость от</span>
+                                <span class="price-value">€ 25 538/год</span>
+                            </div>
+                            <button class="btn btn-card-action toggle-table-btn">Быстрая заявка</button>
+                        </div>
+                    </div>
+                    <div class="uni-card-dropdown">
+                        <table class="programs-table">
+                            <thead>
+                                <tr><th>🎓 Программа</th><th>✏️ Поступление</th><th>🔔 Начало</th><th>🍎 Возраст</th><th>⌛ Цена/год</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="prog-name">Бакалавриат</td><td>11 окт – 13 дек</td><td>1 ноября 2021</td><td>22-23 года</td><td class="table-price">€ 22 989</td><td><button class="btn btn-table-action">Быстрая заявка</button></td></tr>
+                                <tr><td class="prog-name">Магистратура</td><td>11 окт – 13 дек</td><td>1 ноября 2021</td><td>22-23 года</td><td class="table-price">€ 22 989</td><td><button class="btn btn-table-action">Быстрая заявка</button></td></tr>
+                                <tr><td class="prog-name">Подготовка к бакалавриату</td><td>11 окт – 13 дек</td><td>1 ноября 2021</td><td>22-23 года</td><td class="table-price">€ 22 989</td><td><button class="btn btn-table-action">Быстрая заявка</button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- КАРТОЧКА 3 -->
+                <div class="uni-card">
+                    <div class="uni-card-main">
+                        <div class="uni-image">
+                            <img src="vienna-uni.jpg" alt="Венский Ветеринарный Университет">
+                        </div>
+                        <div class="uni-info">
+                            <h3 class="uni-title">Венский Ветеринарный Университет</h3>
+                            <div class="uni-meta">
+                                <span class="rating">★ 4.8 <i class="info-icon">i</i></span>
+                                <span class="location">📍 Австрия, Вена</span>
+                            </div>
+                            <div class="uni-details">
+                                <p><strong>Программы:</strong> бакалавриат, магистратура, подготовка к бакалавриату</p>
+                                <p><strong>Языки обучения:</strong> английский, испанский, болгарский, румынский</p>
+                            </div>
+                            <button class="btn-select-prog dropdown-blue">Все программы</button>
+                        </div>
+                        <div class="uni-side">
+                            <img src="vienna-logo.png" alt="Логотип вуза" class="uni-logo">
+                            <div class="uni-price-block">
+                                <span class="price-label">Стоимость от</span>
+                                <span class="price-value">€ 25 538/год</span>
+                            </div>
+                            <button class="btn btn-card-action toggle-table-btn">Быстрая заявка</button>
+                        </div>
+                    </div>
+                    <div class="uni-card-dropdown">
+                        <table class="programs-table">
+                            <thead>
+                                <tr><th>🎓 Программа</th><th>✏️ Поступление</th><th>🔔 Начало</th><th>🍎 Возраст</th><th>⌛ Цена/год</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="prog-name">Бакалавриат</td><td>11 окт – 13 дек</td><td>1 ноября 2021</td><td>22-23 года</td><td class="table-price">€ 22 989</td><td><button class="btn btn-table-action">Быстрая заявка</button></td></tr>
+                                <tr><td class="prog-name">Магистратура</td><td>11 окт – 13 дек</td><td>1 ноября 2021</td><td>22-23 года</td><td class="table-price">€ 22 989</td><td><button class="btn btn-table-action">Быстрая заявка</button></td></tr>
+                                <tr><td class="prog-name">Подготовка к бакалавриату</td><td>11 окт – 13 дек</td><td>1 ноября 2021</td><td>22-23 года</td><td class="table-price">€ 22 989</td><td><button class="btn btn-table-action">Быстрая заявка</button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- КАРТОЧКА 4 -->
+                <div class="uni-card">
+                    <div class="uni-card-main">
+                        <div class="uni-image">
+                            <img src="vienna-uni.jpg" alt="Венский Ветеринарный Университет">
+                        </div>
+                        <div class="uni-info">
+                            <h3 class="uni-title">Венский Ветеринарный Университет</h3>
+                            <div class="uni-meta">
+                                <span class="rating">★ 4.8 <i class="info-icon">i</i></span>
+                                <span class="location">📍 Австрия, Вена</span>
+                            </div>
+                            <div class="uni-details">
+                                <p><strong>Программы:</strong> бакалавриат, магистратура, подготовка к бакалавриату</p>
+                                <p><strong>Языки обучения:</strong> английский, испанский, болгарский, румынский</p>
+                            </div>
+                            <button class="btn-select-prog dropdown-blue">Все программы</button>
+                        </div>
+                        <div class="uni-side">
+                            <img src="vienna-logo.png" alt="Логотип вуза" class="uni-logo">
+                            <div class="uni-price-block">
+                                <span class="price-label">Стоимость от</span>
+                                <span class="price-value">€ 25 538/год</span>
+                            </div>
+                            <button class="btn btn-card-action toggle-table-btn">Быстрая заявка</button>
+                        </div>
+                    </div>
+                    <div class="uni-card-dropdown">
+                        <table class="programs-table">
+                            <thead>
+                                <tr><th>🎓 Программа</th><th>✏️ Поступление</th><th>🔔 Начало</th><th>🍎 Возраст</th><th>⌛ Цена/год</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="prog-name">Бакалавриат</td><td>11 окт – 13 дек</td><td>1 ноября 2021</td><td>22-23 года</td><td class="table-price">€ 22 989</td><td><button class="btn btn-table-action">Быстрая заявка</button></td></tr>
+                                <tr><td class="prog-name">Магистратура</td><td>11 окт – 13 дек</td><td>1 ноября 2021</td><td>22-23 года</td><td class="table-price">€ 22 989</td><td><button class="btn btn-table-action">Быстрая заявка</button></td></tr>
+                                <tr><td class="prog-name">Подготовка к бакалавриату</td><td>11 окт – 13 дек</td><td>1 ноября 2021</td><td>22-23 года</td><td class="table-price">€ 22 989</td><td><button class="btn btn-table-action">Быстрая заявка</button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- КАРТОЧКА 5 -->
+                <div class="uni-card">
+                    <div class="uni-card-main">
+                        <div class="uni-image">
+                            <img src="vienna-uni.jpg" alt="Венский Ветеринарный Университет">
+                        </div>
+                        <div class="uni-info">
+                            <h3 class="uni-title">Венский Ветеринарный Университет</h3>
+                            <div class="uni-meta">
+                                <span class="rating">★ 4.8 <i class="info-icon">i</i></span>
+                                <span class="location">📍 Австрия, Вена</span>
+                            </div>
+                            <div class="uni-details">
+                                <p><strong>Программы:</strong> бакалавриат, магистратура, подготовка к бакалавриату</p>
+                                <p><strong>Языки обучения:</strong> английский, испанский, болгарский, румынский</p>
+                            </div>
+                            <button class="btn-select-prog dropdown-blue">Все программы</button>
+                        </div>
+                        <div class="uni-side">
+                            <img src="vienna-logo.png" alt="Логотип вуза" class="uni-logo">
+                            <div class="uni-price-block">
+                                <span class="price-label">Стоимость от</span>
+                                <span class="price-value">€ 25 538/год</span>
+                            </div>
+                            <button class="btn btn-card-action toggle-table-btn">Быстрая заявка</button>
+                        </div>
+                    </div>
+                    <div class="uni-card-dropdown">
+                        <table class="programs-table">
+                            <thead>
+                                <tr><th>🎓 Программа</th><th>✏️ Поступление</th><th>🔔 Начало</th><th>🍎 Возраст</th><th>⌛ Цена/год</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="prog-name">Бакалавриат</td><td>11 окт – 13 дек</td><td>1 ноября 2021</td><td>22-23 года</td><td class="table-price">€ 22 989</td><td><button class="btn btn-table-action">Быстрая заявка</button></td></tr>
+                                <tr><td class="prog-name">Магистратура</td><td>11 окт – 13 дек</td><td>1 ноября 2021</td><td>22-23 года</td><td class="table-price">€ 22 989</td><td><button class="btn btn-table-action">Быстрая заявка</button></td></tr>
+                                <tr><td class="prog-name">Подготовка к бакалавриату</td><td>11 окт – 13 дек</td><td>1 ноября 2021</td><td>22-23 года</td><td class="table-price">€ 22 989</td><td><button class="btn btn-table-action">Быстрая заявка</button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="questions-section">
+        <div class="container-fluid">
+            <div class="questions-card">
+                <h2 class="questions-title">Остались вопросы?</h2>
+                <p class="questions-subtitle">Ответим на любые! Как поступить в Хогвартс, почему люди не летают и какие угодно еще</p>
+                <div class="messengers-block">
+                    <a href="#" class="btn-messenger telegram"><span class="social-icon-img tg-icon"></span>Telegram</a>
+                    <a href="#" class="btn-messenger whatsapp"><span class="social-icon-img wa-icon"></span>Whatsapp</a>
+                    <a href="#" class="btn-messenger facebook"><span class="social-icon-img fb-icon"></span>Facebook</a>
+                </div>
+                <div class="divider">или</div>
+                <button class="btn btn-primary btn-large">Запросить обратный звонок</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section" style="padding: 80px 0; background: #f0f4ff;">
+        <div class="container">
+            <div style="max-width: 700px; margin: 0 auto;">
+                <h2 style="font-size: 36px; font-weight: 900; color: #111; text-align: center;">Свяжитесь с нами</h2>
+                <div class="dots-divider" style="display: flex; justify-content: center; gap: 8px; margin: 20px 0;">
+                    <span style="display: inline-block; width: 8px; height: 8px; background: #1e5eff; border-radius: 50%;"></span>
+                    <span style="display: inline-block; width: 8px; height: 8px; background: #1e5eff; border-radius: 50%;"></span>
+                    <span style="display: inline-block; width: 8px; height: 8px; background: #1e5eff; border-radius: 50%;"></span>
+                    <span style="display: inline-block; width: 8px; height: 8px; background: #1e5eff; border-radius: 50%;"></span>
+                </div>
+                <p style="color: #666; text-align: center; margin-bottom: 30px;">Оставьте заявку, и наш консультант свяжется с вами</p>
+                <form action="php/send.php" method="POST" enctype="multipart/form-data" style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 30px rgba(0,0,0,0.05);">
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 5px; color: #333;">Ваше имя *</label>
+                        <input type="text" name="user_name" placeholder="Иван Иванов" required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; font-size: 16px;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 5px; color: #333;">Ваш email *</label>
+                        <input type="email" name="user_email" placeholder="ivan@mail.ru" required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; font-size: 16px;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 5px; color: #333;">Телефон</label>
+                        <input type="tel" name="user_phone" placeholder="+7 (999) 123-45-67" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; font-size: 16px;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 5px; color: #333;">Ваш вопрос *</label>
+                        <textarea name="user_message" rows="4" placeholder="Расскажите, какое образование вас интересует..." required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; font-size: 16px; font-family: inherit;"></textarea>
+                    </div>
+                    <div style="margin-bottom: 25px;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 5px; color: #333;">Прикрепить файл (например, скан документа)</label>
+                        <input type="file" name="user_file" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; background: #fafafa; font-size: 14px;">
+                        <small style="color: #999;">Максимальный размер файла: 5 МБ</small>
+                    </div>
+                    <button type="submit" style="width: 100%; padding: 16px; background: #1e5eff; color: white; border: none; border-radius: 10px; font-size: 18px; font-weight: 700; cursor: pointer; transition: background 0.3s;">
+                        Отправить заявку
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КАТАЛОГ УНИВЕРСИТЕТОВ (из БД) ===== -->
+    <?php include 'php/university_catalog_include.php'; ?>
+
+    <!-- ============================================================ -->
+    <!-- ЗАДАНИЕ №1: СЕССИИ -->
+    <!-- ============================================================ -->
+    <section class="task-section" style="background: #fff;">
+        <div class="container">
+            <h2>Задание №1: Работа с сессиями</h2>
+            <div class="task-box">
+                <div class="flex-wrap">
+                    <a href="?session_page=1" class="btn btn-success">Создать сессию</a>
+                    <a href="?session_page=2" class="btn btn-primary">Просмотреть сессию</a>
+                    <a href="?session_page=3" class="btn btn-danger">Удалить сессию</a>
+                </div>
+                <div class="status status-<?php echo $session_status ?: 'empty'; ?>">
+                    <strong>Статус:</strong>
+                    <?php if ($has_session): ?>
+                        ✅ Сессия активна. Имя: <strong><?php echo htmlspecialchars($username); ?></strong>
+                    <?php else: ?>
+                        ⛔ Сессия не активна или пуста
+                    <?php endif; ?>
+                    <br>
+                    <strong>ID сессии:</strong> <?php echo session_id(); ?>
+                </div>
+                <?php if ($session_message): ?>
+                    <p style="color: #1e5eff; font-weight: 600;"><?php echo $session_message; ?></p>
+                <?php endif; ?>
+                <p style="font-size: 14px; color: #999; margin-top: 10px;">
+                    <strong>Как работает:</strong> Нажмите "Создать сессию" → сохранится имя.
+                    "Просмотреть сессию" → увидите данные. "Удалить сессию" → всё очистится.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ЗАДАНИЕ №2: COOKIES -->
+    <!-- ============================================================ -->
+    <section class="task-section" style="background: #f5f7fa;">
+        <div class="container">
+            <h2 style="color: #111;">Задание №2: Работа с Cookies</h2>
+            <div class="task-box" style="background: white; padding: 30px; border-radius: 16px;">
+                
+                <?php if ($cookie_message): ?>
+                    <p style="color: #000000; font-weight: 600;"><?php echo $cookie_message; ?></p>
+                <?php endif; ?>
+                
+                <h3 style="color: #000000;">Текущие cookies (<?php echo count($_COOKIE); ?> шт.)</h3>
+                
+                <?php if (empty($_COOKIE)): ?>
+                    <p style="color: #000000;">Нет установленных cookies</p>
+                <?php else: ?>
+                    <ul style="list-style: none; padding: 0;">
+                        <?php foreach ($_COOKIE as $name => $value): ?>
+                            <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; color: #000000;">
+                                <span style="color: #000000;">
+                                    <strong style="color: #000000;"><?php echo htmlspecialchars($name); ?></strong> = <?php echo htmlspecialchars($value); ?>
+                                </span>
+                                <form method="POST" style="display:inline;">
+                                    <input type="hidden" name="cookie_to_delete" value="<?php echo htmlspecialchars($name); ?>">
+                                    <button type="submit" name="delete_cookie" class="btn btn-danger" style="padding: 5px 15px; font-size: 12px; background: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer;">Удалить</button>
+                                </form>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
+                
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+                
+                <h3 style="color: #000000;">Создать cookie</h3>
+                <form method="POST" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+                    <input type="text" name="cookie_name" placeholder="Имя cookie" required style="padding: 10px 14px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; color: #000000; background: #ffffff;">
+                    <input type="text" name="cookie_value" placeholder="Значение" required style="padding: 10px 14px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; color: #000000; background: #ffffff;">
+                    <select name="expire_days" style="padding: 10px 14px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; color: #000000; background: #ffffff;">
+                        <option value="1">1 день</option>
+                        <option value="7">7 дней</option>
+                        <option value="30" selected>30 дней</option>
+                        <option value="365">1 год</option>
+                    </select>
+                    <button type="submit" name="set_cookie" class="btn btn-success" style="background: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600;">Создать</button>
+                    <button type="submit" name="delete_all_cookies" class="btn btn-danger" onclick="return confirm('Удалить все cookie?')" style="background: #dc3545; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600;">Удалить все</button>
+                </form>
+                
+                <p style="font-size: 14px; color: #000000; margin-top: 15px;">
+                    <strong>Как работает:</strong> Введите имя и значение → нажмите "Создать" → cookie сохранится в браузере на выбранный срок.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ЗАДАНИЕ №3: АВТОРИЗАЦИЯ -->
+    <!-- ============================================================ -->
+    <section class="task-section" style="background: #fff;">
+        <div class="container">
+            <h2>Задание №3: Авторизация (админ-панель)</h2>
+            <div class="task-box">
+                <?php if (isset($_GET['logout_success'])): ?>
+                    <p style="color: green; font-weight: 600;">✅ Вы вышли из системы</p>
+                <?php endif; ?>
+                <?php if ($auth_success): ?>
+                    <p style="color: green; font-weight: 600;">✅ Вход выполнен!</p>
+                <?php endif; ?>
+                <?php if ($auth_error): ?>
+                    <p style="color: red; font-weight: 600;"><?php echo $auth_error; ?></p>
+                <?php endif; ?>
+                <?php if ($is_admin): ?>
+                    <div class="admin-panel">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                            <div>
+                                <h3>👑 Админ-панель</h3>
+                                <p><strong>Вы вошли как:</strong> <?php echo $_SESSION['admin_name']; ?></p>
+                                <p><strong>Время входа:</strong> <?php echo date('d.m.Y H:i:s', $_SESSION['admin_login_time']); ?></p>
+                            </div>
+                            <a href="?logout=1" class="logout-btn">Выйти</a>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
+                                <h4>📊 Статистика</h4>
+                                <p style="font-size: 28px; color: #1e5eff;">12</p>
+                                <p style="color: #999;">новых заявок</p>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
+                                <h4>👥 Пользователи</h4>
+                                <p style="font-size: 28px; color: #28a745;">156</p>
+                                <p style="color: #999;">всего</p>
+                            </div>
+                            <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
+                                <h4>📝 Заявки</h4>
+                                <p style="font-size: 28px; color: #ffc107;">8</p>
+                                <p style="color: #999;">в обработке</p>
+                            </div>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <div style="max-width: 400px;">
+                        <p style="color: #666;">Введите пароль для доступа к админ-панели.</p>
+                        <form method="POST" class="login-form">
+                            <input type="password" name="password" placeholder="Введите пароль" required>
+                            <button type="submit" name="login_submit">Войти</button>
+                        </form>
+                        <p style="font-size: 12px; color: #999; margin-top: 10px;">Пароль по умолчанию: <strong>admin123</strong></p>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ФУТЕР -->
+    <!-- ============================================================ -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="#">Высшее образование</a></li>
+                        <li><a href="#">Страны</a></li>
+                        <li><a href="#">Услуги</a></li>
+                        <li><a href="#">Стоимость</a></li>
+                        <li><a href="#">Блог</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Обучение</h4>
+                    <ul>
+                        <li><a href="#">Обучение в Австрии</a></li>
+                        <li><a href="#">Обучение в Америке</a></li>
+                        <li><a href="#">Обучение в Великобритании</a></li>
+                        <li><a href="#">Обучение в Китае</a></li>
+                        <li><a href="#">Обучение в Сингапуре</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Страны</h4>
+                    <ul>
+                        <li><a href="#"><span class="footer-flag at"></span>Австria</a></li>
+                        <li><a href="#"><span class="footer-flag be"></span>Бельгия</a></li>
+                        <li><a href="#"><span class="footer-flag gb"></span>Великобритания</a></li>
+                        <li><a href="#"><span class="footer-flag es"></span>Испания</a></li>
+                        <li><a href="#"><span class="footer-flag it"></span>Италия</a></li>
+                        <li><a href="#"><span class="footer-flag ca"></span>Канада</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Популярные университеты</h4>
+                    <ul>
+                        <li><a href="#">Высшее образование</a></li>
+                        <li><a href="#">Страны</a></li>
+                        <li><a href="#">Услуги</a></li>
+                        <li><a href="#">Стоимость</a></li>
+                        <li><a href="#">Блог</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-social-row">
+                <div class="social-icons">
+                    <a href="#" class="social-link fb-round"><span class="footer-social-svg"></span></a>
+                    <a href="#" class="social-link vk-round"><span class="footer-social-svg"></span></a>
+                    <a href="#" class="social-link ig-round"><span class="footer-social-svg"></span></a>
+                    <a href="#" class="social-link tw-round"><span class="footer-social-svg"></span></a>
+                    <a href="#" class="social-link vb-round"><span class="footer-social-svg"></span></a>
+                </div>
+            </div>
+            <div class="footer-sub-menu">
+                <a href="#">О нас</a>
+                <a href="#">Блог</a>
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Terms & Condition</a>
+                <a href="#">Контакты</a>
+                <a href="#">Вакансии</a>
+            </div>
+            <div class="footer-copyright">
+                <div class="footer-logo">Study&gt;<span>Moov</span></div>
+                <p>© 2019-2021 StudyMOOV — образование за рубежом</p>
+                <p class="made-in">Made with <span class="heart">❤️</span> in Switzerland</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.toggle-table-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const card = this.closest('.uni-card');
+                    card.classList.toggle('opened');
+                    const selectProgBtn = card.querySelector('.btn-select-prog');
+                    if (selectProgBtn) {
+                        selectProgBtn.classList.toggle('up');
+                    }
+                });
+            });
+
+            document.querySelectorAll('.dropdown-trigger').forEach(dropdown => {
+                dropdown.addEventListener('click', function(e) {
+                    if (e.target.closest('.filter-dropdown-menu')) return;
+                    document.querySelectorAll('.dropdown-trigger').forEach(other => {
+                        if (other !== this) {
+                            other.classList.remove('active');
+                        }
+                    });
+                    this.classList.toggle('active');
+                });
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown-trigger')) {
+                    document.querySelectorAll('.dropdown-trigger').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

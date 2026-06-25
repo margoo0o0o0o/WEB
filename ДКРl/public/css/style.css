@@ -1,0 +1,1062 @@
+/* ==========================================================================
+   1. БАЗОВЫЙ СБРОС И ГЛОБАЛЬНЫЕ СТИЛИ
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Переменные проекта для быстрой смены цветов */
+:root {
+    --primary-color: #1e5eff;
+    --primary-hover: #0a4ae6;
+    --text-muted: rgba(255, 255, 255, 0.7);
+    --bg-filter: #f5f6f8;
+}
+
+/* ==========================================================================
+   2. СЕТКА И СТРУКТУРНЫЕ КОНТЕЙНЕРЫ
+   ========================================================================== */
+/* Стандартный ограниченный контейнер для контента */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    height: 100%;
+}
+
+/* Специальный контейнер для шапки и футера от края до края с аккуратными отступами */
+.container-fluid {
+    width: 100%;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   3. ГЛАВНЫЙ ЭКРАН (HERO SECTION) И ШАПКА
+   ========================================================================== */
+.hero {
+    position: relative;
+    height: 85vh;
+    min-height: 650px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Фоновая картинка */
+.hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Затемняющий фильтр поверх картинки, чтобы текст читался */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 2;
+}
+
+.hero-container {
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Навигационная панель */
+.header-nav {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between; /* Расталкивает левую группу и контакты */
+    align-items: center;
+    padding: 30px 0;
+    width: 100%;
+}
+
+/* Лого + Меню зафиксированы рядом на макете */
+.nav-left-side {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Расстояние между логотипом и началом меню */
+}
+
+.logo-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.logo-subtitle {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 1px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 25px; /* Зазор между ссылками меню */
+}
+
+.nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Стрелочки-треугольники у ссылок с выпадающими списками */
+.dropdown::after {
+    content: '';
+    display: inline-block;
+    margin-left: 6px;
+    vertical-align: middle;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #fff;
+    opacity: 0.8;
+}
+
+/* Блок контактов и действий справа */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.phone {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+}
+
+/* Кнопки */
+.btn {
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 16px 45px;
+    font-size: 15px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Центральный текстовый контент */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-grow: 1;
+    padding-bottom: 80px;
+}
+
+.hero-content h1 {
+    font-size: 54px;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+}
+
+.hero-subtitle {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 35px;
+    letter-spacing: 0.2px;
+}
+
+/* ==========================================================================
+   4. СИНЯЯ СЕКЦИЯ СТАТИСТИКИ
+   ========================================================================== */
+.stats {
+    background-color: var(--primary-color);
+    padding: 35px 0;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.stat-icon {
+    font-size: 24px;
+}
+
+.stat-text h3 {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.stat-text p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 220px;
+    line-height: 1.3;
+}
+
+/* ==========================================================================
+   5. ФИЛЬТРЫ И СПИСОК КАРТОЧЕК ВУЗОВ
+   ========================================================================== */
+.filter-section {
+    background-color: #ffffff;
+    padding: 50px 0;
+    color: #333;
+}
+
+.filter-bar {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.filter-select {
+    background-color: var(--bg-filter);
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    flex-grow: 1;
+    min-width: 180px;
+}
+
+.filter-select .arrow {
+    font-size: 9px;
+    color: #888;
+}
+
+.results-title {
+    font-size: 28px;
+    font-weight: 900;
+    color: #111;
+    letter-spacing: -0.5px;
+}
+
+/* Сетка списка карточек */
+.cards-list {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Сама карточка университета */
+.uni-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+    color: #333;
+}
+
+/* Верхняя (главная) часть карточки */
+.uni-card-main {
+    display: flex;
+    padding: 24px;
+    gap: 24px;
+}
+
+/* Картинка здания */
+.uni-image {
+    width: 260px;
+    height: 180px;
+    flex-shrink: 0;
+}
+
+.uni-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Информационный текстовый блок */
+.uni-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.uni-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #111;
+    letter-spacing: -0.3px;
+}
+
+.uni-meta {
+    display: flex;
+    gap: 15px;
+    margin: 8px 0 15px 0;
+    font-size: 13px;
+}
+
+.rating {
+    background: #eef7ee;
+    color: #2e7d32;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.info-icon {
+    font-style: normal;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: #888;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 10px;
+    text-align: center;
+    line-height: 14px;
+}
+
+.location {
+    color: #666;
+    font-weight: 500;
+}
+
+.uni-details p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.uni-details strong {
+    color: #111;
+}
+
+/* Кнопка "Все программы" */
+.btn-select-prog {
+    background: #f0f4ff;
+    color: #1e5eff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.dropdown-blue::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #1e5eff;
+    transition: transform 0.2s;
+}
+
+/* Когда карточке скриптом добавлен .opened — разворачиваем стрелочку у синей кнопки */
+.btn-select-prog.up::after {
+    transform: rotate(180deg);
+}
+
+/* Правая узкая колонка (логотип, цена и кнопка действия) */
+.uni-side {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.uni-logo {
+    max-height: 40px;
+    object-fit: contain;
+}
+
+.uni-price-block {
+    margin: 15px 0;
+}
+
+.price-label {
+    display: block;
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 2px;
+}
+
+.price-value {
+    font-size: 20px;
+    font-weight: 900;
+    color: #111;
+}
+
+.btn-card-action {
+    background-color: var(--primary-color);
+    color: #fff;
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.btn-card-action:hover {
+    background-color: var(--primary-hover);
+}
+
+/* ==========================================================================
+   6. РАСКРЫВАЮЩАЯСЯ ТАБЛИЦА ПРОГРАММ
+   ========================================================================== */
+.uni-card-dropdown {
+    display: none; /* По умолчанию скрыта */
+    background: #fcfcfd;
+    border-top: 1px solid #eee;
+    padding: 10px 24px 24px 24px;
+}
+
+/* Скрипт добавляет этот класс к .uni-card при клике на "Быстрая заявка" */
+.uni-card.opened .uni-card-dropdown {
+    display: block;
+}
+
+.programs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.programs-table th {
+    font-size: 12px;
+    font-weight: 600;
+    color: #777;
+    padding: 16px 12px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.programs-table td {
+    font-size: 13px;
+    color: #444;
+    padding: 16px 12px;
+    border-bottom: 1px solid #f5f5f5;
+    vertical-align: middle;
+}
+
+.prog-name {
+    font-weight: 600;
+    color: #222;
+}
+
+.table-price {
+    font-weight: 700;
+    color: #111;
+}
+
+/* Кнопка "Быстрая заявка" внутри таблицы */
+.btn-table-action {
+    background: transparent;
+    border: 1px solid #333;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-table-action:hover {
+    background: #333;
+    color: #fff;
+}
+
+/* ==========================================================================
+   7. СЕКЦИЯ КОНТАКТОВ ДЛЯ ВОПРОСОВ (НА ВЕСЬ ЭКРАН)
+   ========================================================================== */
+.questions-section {
+    background-color: #f8f9fa;
+    padding: 60px 0 80px 0;
+}
+
+/* Белая карточка обратной связи на всю ширину (с аккуратными боковыми полями) */
+.questions-card {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    padding: 60px 40px;
+    text-align: center;
+    max-width: 1400px; /* Увеличено до 1400px, чтобы блок ложился масштабно на весь экран */
+    margin: 0 auto;
+    width: 100%;
+}
+
+.questions-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: #111;
+    letter-spacing: -0.5px;
+    margin-bottom: 15px;
+}
+
+.questions-subtitle {
+    font-size: 15px;
+    color: #8a8d93;
+    max-width: 100%; /* Убираем зажатие по ширине, чтобы текст не переносился */
+    margin: 0 auto 35px auto;
+    line-height: 1.5;
+}
+
+.messengers-block {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.btn-messenger {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    padding: 12px 28px;
+    border-radius: 12px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-messenger:hover {
+    border-color: #bbb;
+    background-color: #f9f9f9;
+    transform: translateY(-1px);
+}
+
+.messenger-icon {
+    font-size: 16px;
+}
+
+.divider {
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-large {
+    padding: 16px 50px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(30, 94, 255, 0.2);
+}
+
+/* ==========================================================================
+   9. СТИЛИ ДЛЯ НИЖНЕГО БЛОКА (FOOTER)
+   ========================================================================== */
+.main-footer {
+    background-color: #ffffff;
+    padding: 80px 0 40px 0;
+    color: #333333;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* Сетка колонок со ссылками */
+.footer-links-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-col h4 {
+    font-size: 14px;
+    font-weight: 900;
+    color: #111111;
+    margin-bottom: 25px;
+    text-transform: none;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    font-size: 13px;
+    color: #666666;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-block;
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Блок иконок социальных сетей */
+.footer-social-row {
+    border-top: 1px solid #f0f1f3;
+    padding-top: 30px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Перезаписываем базовый кружок под макет: сочный синий фон */
+.social-link {
+    width: 36px;
+    height: 36px;
+    background-color: #1e5eff; /* Фирменный синий цвет кнопок */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Внутренний контейнер для SVG-иконки */
+.footer-social-svg {
+    display: inline-block;
+    width: 16px; /* Оптимальный размер иконок внутри кружка */
+    height: 16px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Делаем черные SVG-картинки абсолютно белыми, чтобы они контрастировали с синим фоном */
+    filter: invert(150%) brightness(200%); 
+}
+
+/* Подключаем официальные векторные логотипы через CDN */
+.fb-round .footer-social-svg {
+    background-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg');
+}
+
+.vk-round .footer-social-svg {
+    background-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/vk.svg');
+}
+
+.ig-round .footer-social-svg {
+    background-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg');
+}
+
+.tw-round .footer-social-svg {
+    background-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg');
+}
+
+.vb-round .footer-social-svg {
+    background-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/viber.svg');
+}
+
+/* Эффект при наведении */
+.social-link:hover {
+    background-color: #0a4ae6;
+    transform: translateY(-2px);
+}
+
+/* Ссылки конфиденциальности посередине */
+.footer-sub-menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.footer-sub-menu a {
+    font-size: 12px;
+    color: #999999;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-sub-menu a:hover {
+    color: #333333;
+}
+
+/* Копирайт и брендинг */
+.footer-copyright {
+    text-align: center;
+    font-size: 12px;
+    color: #999999;
+    line-height: 1.8;
+}
+
+.footer-copyright .footer-logo {
+    font-size: 16px;
+    font-weight: 900;
+    color: #111111;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+}
+
+.footer-copyright .footer-logo span {
+    color: #287DFC; /* Окрашивает слово Moov в синий цвет */
+}
+
+.footer-copyright .made-in {
+    margin-top: 4px;
+    color: #aaaaaa;
+}
+
+.footer-copyright .heart {
+    color: #ff3b30;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   10. ИНТЕРАКТИВНЫЕ ВЫПАДАЮЩИЕ СПИСКИ ДЛЯ ФИЛЬТРОВ
+   ========================================================================== */
+.filter-select {
+    position: relative; /* Чтобы выпадающее меню позиционировалось относительно кнопки */
+    user-select: none;
+}
+
+/* Стилизация раскрывающегося окна */
+.filter-dropdown-menu {
+    display: none; /* Скрыто по умолчанию */
+    position: absolute;
+    top: calc(100% + 8px); /* Небольшой отступ вниз от кнопки */
+    left: 0;
+    min-width: 220px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Мягкая тень как на макете */
+    padding: 15px 0;
+    z-index: 100;
+}
+
+/* Выравнивание правого меню по правому краю, если кнопка узкая */
+.lang-dropdown {
+    left: auto;
+    right: 0;
+}
+
+/* Элементы внутри выпадающего списка */
+.dropdown-item {
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333333;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Эффект наведения на пункт списка */
+.dropdown-item:hover {
+    background-color: #f5f6f8;
+    color: var(--primary-color);
+}
+
+/* Состояние, когда фильтр активен (открыт) */
+.filter-select.active {
+    background-color: #eaecef; /* Чуть темнее фон кнопки при клике */
+}
+
+.filter-select.active .arrow {
+    color: var(--primary-color); /* Стрелочка становится синей при открытии */
+    transform: rotate(180deg);
+}
+
+/* Класс, который JS будет вешать для показа меню */
+.filter-select.active .filter-dropdown-menu {
+    display: block;
+}
+
+/* Плавный поворот стрелочки */
+.filter-select .arrow {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Базовые стили для флага */
+.flag {
+    display: inline-block;
+    width: 20px;
+    height: 14px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 2px; /* Легкое закругление углов самого флажка */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Легкая тень, чтобы белый цвет флага Франции не сливался с фоном */
+    flex-shrink: 0;
+}
+
+/* Ссылки на фоновые картинки флагов */
+.flag.us { background-image: url('https://flagcdn.com/w20/us.png'); }
+.flag.de { background-image: url('https://flagcdn.com/w20/de.png'); }
+.flag.fr { background-image: url('https://flagcdn.com/w20/fr.png'); }
+.flag.es { background-image: url('https://flagcdn.com/w20/es.png'); }
+
+/* Выравнивание элементов внутри строки */
+.lang-dropdown .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Отступ от флажка до текста */
+    padding: 12px 24px;
+}
+
+/* Базовые стили для кнопок мессенджеров */
+.btn-messenger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Отступ между иконкой логотипа и текстом */
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    padding: 12px 28px;
+    border-radius: 12px;
+    color: #333333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+/* Общий контейнер под картинку-иконку */
+.social-icon-img {
+    display: inline-block;
+    width: 18px;  /* Размер иконки строго по гайдлайнам макета */
+    height: 18px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+}
+
+/* Подключение официальных SVG-иконок через надежный CDN */
+.tg-icon {
+    background-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/telegram.svg');
+    /* Фильтр, чтобы сделать иконку фирменного голубого цвета Telegram */
+    filter: invert(47%) sepia(91%) saturate(1915%) hue-rotate(179deg) brightness(96%) contrast(101%);
+}
+
+.wa-icon {
+    background-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg');
+    /* Фильтр для фирменного зеленого цвета WhatsApp */
+    filter: invert(56%) sepia(85%) saturate(432%) hue-rotate(92deg) brightness(97%) contrast(87%);
+}
+
+.fb-icon {
+    background-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg');
+    /* Фильтр для оригинального синего цвета Facebook */
+    filter: invert(32%) sepia(90%) saturate(1476%) hue-rotate(203deg) brightness(97%) contrast(93%);
+}
+
+/* Эффект наведения на кнопки, как в исходных стилях */
+.btn-messenger:hover {
+    border-color: #bbb;
+    background-color: #f9f9f9;
+    transform: translateY(-1px);
+}
+
+/* Выравнивание флага и текста в футере */
+.footer-countries-list li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px; /* Отступ от флага до названия страны */
+}
+
+/* Общие базовые стили для флажков в подвале */
+.footer-flag {
+    display: inline-block;
+    width: 18px;
+    height: 12px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 1px; /* Легкое закругление углов */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Чтобы светлые полосы флагов не сливались с фоном */
+    flex-shrink: 0;
+}
+
+/* Ссылки на фоновые картинки флагов стран */
+.footer-flag.at { background-image: url('https://flagcdn.com/w20/at.png'); } /* Австрия */
+.footer-flag.be { background-image: url('https://flagcdn.com/w20/be.png'); } /* Бельгия */
+.footer-flag.gb { background-image: url('https://flagcdn.com/w20/gb.png'); } /* Великобритания */
+.footer-flag.es { background-image: url('https://flagcdn.com/w20/es.png'); } /* Испания */
+.footer-flag.it { background-image: url('https://flagcdn.com/w20/it.png'); } /* Италия */
+.footer-flag.ca { background-image: url('https://flagcdn.com/w20/ca.png'); } /* Канада */
+
+/* Адаптивность для футера на мобильных экранах */
+@media (max-width: 768px) {
+    .footer-links-grid {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    .footer-col h4 {
+        margin-bottom: 15px;
+    }
+    .footer-sub-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+}
+
+/* ==========================================================================
+   8. АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА
+   ========================================================================== */
+@media (max-width: 992px) {
+    .container-fluid {
+        padding: 0 20px;
+    }
+    .nav-menu, .header-actions .btn-outline {
+        display: none; /* Скрываем десктопное меню на мобилках */
+    }
+    .hero-content h1 {
+        font-size: 34px;
+    }
+    .stats-grid {
+        flex-direction: column;
+        gap: 30px;
+        align-items: flex-start;
+        padding-left: 20px;
+    }
+    .filter-bar {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .uni-card-main {
+        flex-direction: column;
+    }
+    .uni-image, .uni-side {
+        width: 100%;
+    }
+    .uni-side {
+        align-items: flex-start;
+        text-align: left;
+    }
+    .programs-table th, .programs-table td {
+        padding: 10px 5px;
+        font-size: 11px;
+    }
+    .questions-card {
+        padding: 40px 20px;
+        border-radius: 16px;
+    }
+    .questions-title {
+        font-size: 26px;
+    }
+    .messengers-block {
+        flex-direction: column;
+    }
+    .btn-messenger, .btn-large {
+        width: 100%;
+        justify-content: center;
+    }
+}
